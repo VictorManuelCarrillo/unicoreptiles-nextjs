@@ -1,17 +1,9 @@
 // MUI Components
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  useTheme,
-  useMediaQuery,
-  Box,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, useTheme, useMediaQuery, Box } from "@mui/material";
 // Next Components
 import Link from "next/link";
 // Components
-import DrawerNav from "components/05-navigation/drawer/DrawerNav";
+import DrawerNav from "components/user/05-navigation/drawer/DrawerNav";
 const NavBar = () => {
   // Links array
   const links = [
@@ -28,7 +20,7 @@ const NavBar = () => {
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar sx={{height: 60}}>
+    <AppBar sx={{ height: 60 }}>
       <Toolbar>
         {isMatch ? (
           <Box>
@@ -36,13 +28,13 @@ const NavBar = () => {
             <DrawerNav />
           </Box>
         ) : (
-          <Box sx={{display: 'flex'}}>
-            <Typography variant="h6">Único Reptiles</Typography>
-            <Box sx={{mx: 6}}>
+          <Box sx={{ display: "flex" }}>
+            <Typography variant='h6'>Único Reptiles</Typography>
+            <Box sx={{ mx: 6 }}>
               {links.map((link, idx) => (
                 <Link key={idx} href={link.href}>
                   <Button
-                    color="inherit"
+                    color='inherit'
                     sx={{
                       fontWeight: 600,
                       transition: "0.5s",

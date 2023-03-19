@@ -1,6 +1,6 @@
 import Error from "next/error";
 
-import Layout from "components/06-layout/user/Layout";
+import Layout from "components/06-layout/Layout";
 import PrimaryBtn from "components/01-inputs/button/PrimaryBtn";
 import IconBtn from "components/01-inputs/button/IconBtn";
 import BasicTooltip from "components/02-data-display/tooltip/BasicTooltip";

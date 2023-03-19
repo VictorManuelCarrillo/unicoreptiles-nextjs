@@ -16,61 +16,44 @@ import {
 
 import { ParallaxProvider } from "react-scroll-parallax";
 
-const unicoReptilesPrimaryTheme = createTheme({
+const unicoReptilesTheme = createTheme({
   palette: {
     primary: {
-      main: grey[900],
+      light: '#1c1c1c',
+      main: '#141414',
+      dark: '#0a0a0a',
     },
-
     secondary: {
-      main: red['A700']
+      light: '#f21000',
+      main: '#de0f00',
+      dark: '#c90d00',
     },
-
-    button: {
-      primary: {
-        light: amber[300],
-        main: lightBlue[500],
-        dark: amber[700],
-      },
-
-      secondary: {
-        light: lightBlue[300],
-        main: lightBlue[500],
-        dark: lightBlue[700],
-      },
-
-      text: {
-        light: grey["A100"],
-        main: grey["A200"],
-        dark: grey["A400"],
-      },
+    error: {
+      light: '#ff001e',
+      main: '#ff0f23',
+      dark: '#b80015',
     },
-
-    speedDial: {
-      main: "red",
-      whatsApp:
-        "linear-gradient(160deg, rgba(52,183,241,1) 0%, rgba(37,211,102,1) 60%)",
-      facebook: "blue",
-      phone: "grey",
-      maps: "purple",
+    warning: {
+      light: '#f28100',
+      main: '#e86500',
+      dark: '#e84600',
     },
-
-    card: {
-      text: "white",
-      header: lightBlue[700],
-      content: grey[800],
+    info: {
+      light: '#8cddff',
+      main: '#54b5ff',
+      dark: '#2889d4',
     },
-
-    text: {
-      primary: grey[900],
-      secondary: grey[700],
-    },
-  },
+    success: {
+      light: '#74f518',
+      main: '#46d916',
+      dark: '#16ad2a',
+    }
+  }
 });
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={unicoReptilesPrimaryTheme}>
+    <ThemeProvider theme={unicoReptilesTheme}>
       <ParallaxProvider>
         <Component {...pageProps} />
       </ParallaxProvider>
