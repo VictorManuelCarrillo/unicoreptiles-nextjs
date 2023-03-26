@@ -6,7 +6,7 @@ import { InputLabel, MenuItem, FormControl, Select, FormHelperText } from "@mui/
 const SelectInput = (props) => {
   // select change value and state
   const [selectValue, setSelectValue] = useState("");
-  const handleChange = (e) => {
+  const handleChange2 = (e) => {
     setSelectValue(e.target.value);
   };
 
@@ -17,12 +17,14 @@ const SelectInput = (props) => {
     <FormControl fullWidth>
       <InputLabel>{props.label}</InputLabel>
       <Select
+      name={props.name}
         id={props.id}
         sx={{ color: "red" }}
         labelId='demo-simple-select-label'
-        value={selectValue}
+        // value={selectValue}
+        value={props.value}
         label='Age'
-        onChange={handleChange}
+        onChange={ handleChange2 && props.onChange}
       >
         <MenuItem value={10}>Ten</MenuItem>
         {selectMenuItems.map((selectMenuItem, idx) => (

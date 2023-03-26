@@ -9,6 +9,8 @@ import NumberInpt from "components/user/01-inputs/input/NumberInpt";
 import SelectInpt from "components/user/01-inputs/select/SelectInpt"
 // buttons
 import PrimaryBtn from "components/user/01-inputs/button/PrimaryBtn";
+// switch
+import PrimarySwitch from 'components/user/01-inputs/switch/PrimarySwitch'
 
 // mui components
 import { Container } from "@mui/material";
@@ -22,8 +24,16 @@ export default function AddAnimal() {
     description: "",
     morph: "",
     price: 0,
+    category: "",
+    age: "",
+    gender: "",
   });
+  //for select
+  const [selectValue, setSelectValue] = useState()
+
+
   const [errors, setErrors] = useState({});
+
 
   const validate = () => {
     const errors = {};
@@ -35,6 +45,12 @@ export default function AddAnimal() {
     if (!newAnimal.morph) errors.morph = "description is required";
 
     if (!newAnimal.price) errors.price = "description is required";
+
+    if (!newAnimal.category) errors.category = "description is required";
+
+    if (!newAnimal.age) errors.age = "description is required";
+
+    if (!newAnimal.gender) errors.gender = "description is required";
 
 
     return errors;
@@ -66,12 +82,18 @@ export default function AddAnimal() {
     }
   };
 
-  const handleChange = (e) => setNewAnimal({ ...newAnimal, [e.target.name]: e.target.value});
+  // for select
+
+  const handleChange = (e) => {
+
+    setNewAnimal({ ...newAnimal, [e.target.name]: e.target.value});}
 
   return (
     <Layout>
       <Container maxWidth='lg'>
         <form  onSubmit={handleSubmit}>
+
+          <PrimarySwitch onChange={handleChange}/>
 
           <TextInpt name='title' id='title' required={true} label='titulo' helperText='agrega un titulo' rows={1} onChange={handleChange} />
 
@@ -102,8 +124,28 @@ export default function AddAnimal() {
             onChange={handleChange}
           />
 
-          {/* <SelectInpt
-            label='category'/> */}
+          <SelectInpt
+            name='category'
+            label='category'
+            menuItems={[{text: 'serpientes'}, {text: 'tlacuaches'}]}
+            value={selectValue}
+            onChange={handleChange}/>
+
+            {/* age */}
+            <SelectInpt
+              name='age'
+              label='age'
+              menuItems={[{text: 'cria'}, {text: 'juvenil'}]}
+              value={selectValue}
+              onChange={handleChange}/>
+
+            {/* gender */}
+            <SelectInpt
+              name='gender'
+              label='gender'
+              menuItems={[{text: 'macho'}, {text: 'hembra'}]}
+              value={selectValue}
+              onChange={handleChange}/>
 
           <PrimaryBtn typeBtn='formBtn' text='agregar animal' color='warning' onClick={handleSubmit} />
         </form>
